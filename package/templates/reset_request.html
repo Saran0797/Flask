@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Log In</legend>
+            <div class="form-group">
+                {{ form.Email.label(class="form-control-label") }}
+
+                {% if form.Email.errors %}
+                   {{ form.Email(class="form-control form-control-lg is-invalid") }}
+                   <div class="invalid-feedback">
+                       {% for error in form.Email.errors %}
+                           <span>{{ error }}</span>
+                       {% endfor %}
+                   </div>
+                {% else %}
+                   {{ form.Email(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.Submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+{% endblock %}
